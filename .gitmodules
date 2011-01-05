@@ -1,3 +1,0 @@
-[submodule "lib/vendor"]
-	path = lib/vendor
-	url = https://github.com/Znarkus/postmark-php.git
