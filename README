@@ -1,0 +1,54 @@
+The `sfPostMarkPlugin` is an interface to http://postmarkapp.com/ application. From their page:
+
+> You have an app, you setup a local SMTP server and start firing emails at it. You don’t know if they are bouncing, making it to the Inbox or just failing altogether. Don’t worry, it’s not your fault. You should not have to worry about this stuff, it’s an entire industry on its own. With Postmark, we provide the peace of mind and insight to know your valuable messages are being received.
+
+Prerequisites
+-------------
+
+This plugin for symfony 1.3/1.4, www.postmarkapp.com requires registration on it's site and set up mail server.
+More info at [http://postmarkapp.com]
+
+
+Installation
+------------
+
+1 - Install the plugin.
+
+The easiest way to install `sfPostMarkPlugin` is to use the symfony command line:
+
+    > php symfony plugin:install sfPostMarkPlugin
+
+However recommended method is to fork the latest package from my git hub [https://github.com/zdanozdan/sfUserPostMarkPlugin] as I put changes there and may not have time to build symfony package
+
+2 - Register on postmarkapp, create server, get api key and signatures
+
+3 - Configure app.yml
+
+  >  sf_postmark_plugin:
+  >    key:                  API Key > should get it from postmark after registration
+  >    from:                 foo@bar.com > your regisered mail address
+  >    name:                 Foo Bar > your registered name
+
+Those 3 are required to put in user app.yml config. 
+
+4 - Clear the cache to enable the autoloading to find the new classes:
+
+> php symfony cc
+
+5 - Start sending emails
+
+>    sfPostMark::compose()
+>      ->addTo('address@example.com', 'Name')
+>      ->subject('Subject')
+>      ->messagePlain('Plaintext message')
+>      ->tag('Test tag')
+>      ->send();
+
+sfPostMark extending Mail_Postmark class which is official PHP class for Postmark (https://github.com/Znarkus/postmark-php) so all the code from Postmark documentation should be valid as well.
+
+6. sfMailer factory
+It is also possible to replace default symfony sfMailer based on Swift Mailer in factories.yml with sfPostMark, it would become default mailer for Symfony, however I had not tried that.
+
+TODO
+----
+* add some testing
