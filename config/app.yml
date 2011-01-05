@@ -1,0 +1,5 @@
+all:
+  sf_postmark_plugin:
+    key:    GET_THE_KEY_FROM_POSTMARK
+    from:   foo@bar.com
+    name:   Foo Bar
