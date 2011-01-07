@@ -30,22 +30,6 @@
  *      ->send();
  */
  
-class sfPostMark extends Mail_Postmark
+class sfPostMark extends PluginsfPostMark
 {
-  public function __construct()
-  {
-    $this->_apiKey = sfPostMarkAdapter::getApiKey();      
-    sfPostMarkAdapter::setupDefaults($this);
-    $this->messageHtml(null)->messagePlain(null);
-  }
-
-  public static function compose()
-  {
-    return new self();
-  }
-
-  protected function _log($logData)
-  {
-    sfPostMarkAdapter::log($logData);
-  }
 }
