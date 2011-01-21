@@ -28,6 +28,9 @@ For older git versions, just use:
 
     > git clone git@github.com:zdanozdan/sfPostMarkPlugin.git
     > git submodule update --init
+Now navigate to lib/vendor and change submodule branch to master
+    > cd lib/vendor
+    > git checkout master
 
 2 - Register on postmarkapp, create server, get api key and signatures
 
