@@ -18,7 +18,16 @@ The easiest way to install `sfPostMarkPlugin` is to use the symfony command line
 
     > php symfony plugin:install sfPostMarkPlugin
 
-However recommended method is to fork the latest package from my git hub [https://github.com/zdanozdan/sfPostMarkPlugin] as I put changes there and may not have time to build symfony package
+However recommended method is to fork the latest package from my git hub [https://github.com/zdanozdan/sfPostMarkPlugin] as I put changes there and may not have time to build symfony package.
+
+With version 1.6.5 of git and later, you can use:
+
+     > git clone --recursive git@github.com:zdanozdan/sfPostMarkPlugin.git
+
+For older git versions, just use:
+
+    > git clone git@github.com:zdanozdan/sfPostMarkPlugin.git
+    > git submodule update --init
 
 2 - Register on postmarkapp, create server, get api key and signatures
 
